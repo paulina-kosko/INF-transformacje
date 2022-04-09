@@ -102,7 +102,18 @@ class Transformacje:
     
     
     def fl2neu(self, f, l):
+        '''
+        Funkcja przelicza współrzędne krzywoliniowe flh na współrzędne topocentryczne neu
         
+        Argumenty:
+            f,l - współrzędne krzywoliniowe       / typ: float lub int
+            f, l (w radianach)
+            
+        Wyniki:
+            n,e,u - współrzędne topocentryczne neu [w postaci trzech wektorów]
+        
+        
+        '''
         R = np.array([(-m.sin(f)*m.cos(l), -m.sin(l), m.cos(f) * m.cos(l)),
                       (-m.sin(f)*m.sin(l), m.cos(l), m.cos(f)*m.sin(l)),
                       (m.cos(f), 0, m.sin(f))])
