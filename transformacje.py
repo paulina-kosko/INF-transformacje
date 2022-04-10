@@ -331,10 +331,29 @@ class Transformacje:
 
 if __name__=="__main__":
     #utworzenie obiektu
-    geo = Transformacje(model = "grs80")
+    print('Wybierz elipsoidę:')
+    print('Wpisz 1 dla elipsoidy grs80')
+    print('Wpisz 2 dla elipsoidy wgs84')
+    elip = int(input('Podaj numer: '))
+    if elip == 1:
+        geo = Transformacje(model = "grs80")
+    else:
+        if elip == 2:
+            geo = Transformacje(model = "wgs84")
+        else:
+            print('Nie ma takiej elipsoidy (wybierz 1 lub 2)')
+    
+    #geo = Transformacje(model = "grs80")
     #dane XYZ goecentryczne
-    X = 3664940.500; Y = 1409153.590; Z = 5009571.170
-    X2 = 3664940.510; Y2 = 1409153.58; Z2 = 5009571.167
+    X = float(input('podaj wsp X pierwszego punktu = '))
+    Y = float(input('podaj wsp Y pierwszego punktu = '))
+    Z = float(input('podaj wsp Z pierwszego punktu = '))
+    X2 = float(input('podaj wsp X drugiego punktu = '))
+    Y2 = float(input('podaj wsp Y drugiego punktu = '))
+    Z2 = float(input('podaj wsp Z drugiego punktu = '))
+    
+    #X = 3664940.500; Y = 1409153.590; Z = 5009571.170
+    #X2 = 3664940.510; Y2 = 1409153.58; Z2 = 5009571.167
     
     f, l, h = geo.XYZ2flh(X, Y, Z)
     print('fi = ',f,'lam = ', l, 'h = ', h)
